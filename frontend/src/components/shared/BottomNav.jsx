@@ -102,7 +102,7 @@ const BottomNav = () => {
               onChange={(e) => setPhone(e.target.value)}
               type="number"
               name=""
-              placeholder="+91-9999999999"
+              placeholder="+251-9999999999"
               id=""
               className="bg-transparent flex-1 text-white focus:outline-none"
             />
