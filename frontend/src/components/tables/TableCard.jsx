@@ -10,7 +10,7 @@ const TableCard = ({ id, name, status, initials, seats }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (status === "Booked") return; // prevent click if booked
+    if (status.toLowerCase() === "booked") return;
     dispatch(updateTable({ tableId: id, tableNo: name }));
     navigate("/menu");
   };
@@ -18,10 +18,18 @@ const TableCard = ({ id, name, status, initials, seats }) => {
   return (
     <div
       onClick={handleClick}
-      className="w-[300px] bg-[#262626] p-6 rounded-lg cursor-pointer hover:bg-[#2c2c2c] transition-colors flex flex-col justify-between"
+      className={`w-full bg-[#262626] p-6 rounded-lg transition-colors flex flex-col justify-between
+        ${
+          status.toLowerCase() === "booked"
+            ? "cursor-not-allowed opacity-70"
+            : "cursor-pointer hover:bg-[#2c2c2c]"
+        }
+      `}
       role="button"
       tabIndex={0}
-      onKeyPress={(e) => e.key === "Enter" && handleClick()}
+      onKeyDown={(e) => e.key === "Enter" && handleClick()}
+      aria-disabled={status.toLowerCase() === "booked"}
+      aria-label={`Table ${name}, status ${status}, seats ${seats}`}
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
@@ -30,8 +38,8 @@ const TableCard = ({ id, name, status, initials, seats }) => {
         </h1>
         <p
           className={`px-3 py-1 rounded-lg font-semibold ${
-            status === "Booked"
-              ? "text-green-600 bg-[#2e4a40]"
+            status.toLowerCase() === "booked"
+              ? "text-red-600 bg-[#4a1a1a]"
               : "bg-[#664a04] text-white"
           }`}
         >

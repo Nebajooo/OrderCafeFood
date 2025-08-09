@@ -38,7 +38,7 @@ const BottomNav = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#262626] p-2 h-16 flex justify-around">
+    <div className="fixed bottom-0 left-0 right-0 bg-[#262626] h-16 flex items-center justify-around z-50">
       <button
         onClick={() => navigate("/")}
         className={`flex items-center justify-center font-bold ${

@@ -13,7 +13,9 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="bg-[#1f1f1f]  h-[calc(100vh-5rem)] overflow-hidden flex gap-3">
+    <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3 pb-20">
+      {/* Added pb-20 to avoid BottomNav overlapping content */}
+
       {/* Left Div */}
       <div className="flex-[3]">
         <Greetings />
@@ -33,10 +35,12 @@ const Home = () => {
         </div>
         <RecentOrders />
       </div>
+
       {/* Right Div */}
       <div className="flex-[2]">
         <PopularDishes />
       </div>
+
       <BottomNav />
     </section>
   );

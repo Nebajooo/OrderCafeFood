@@ -30,9 +30,7 @@ const Auth = () => {
           "Serve customers the best food with prompt and friendly service in a
           welcoming atmosphere, and they'll keep coming back."
           <br />
-          <span className="block mt-4 text-yellow-400">
-            - Founder of Restro
-          </span>
+          <span className="block mt-4 text-yellow-400">- Founder of ቡሌ</span>
         </blockquote>
       </div>
 
@@ -45,7 +43,7 @@ const Auth = () => {
             className="h-14 w-14 border-2 rounded-full p-1"
           />
           <h1 className="text-lg font-semibold text-[#f5f5f5] tracking-wide">
-            Restro
+            ቡሌ
           </h1>
         </div>
 

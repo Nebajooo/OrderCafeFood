@@ -44,50 +44,55 @@ const Tables = () => {
   );
 
   return (
-    <section className="bg-[#1f1f1f] min-h-[calc(100vh-5rem)] overflow-hidden px-6 md:px-16">
-      <div className="flex items-center justify-between px-4 py-4">
-        <div className="flex items-center gap-4">
-          <BackButton />
-          <h1 className="text-[#f5f5f5] text-2xl font-bold tracking-wider">
-            Tables
-          </h1>
-        </div>
-        <div className="flex items-center gap-4">
-          {["all", "booked"].map((s) => (
-            <button
-              key={s}
-              onClick={() => setStatus(s)}
-              className={`text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${
-                status === s ? "bg-[#383838]" : ""
-              }`}
-            >
-              {s.charAt(0).toUpperCase() + s.slice(1)}
-            </button>
-          ))}
-        </div>
-      </div>
+    <>
+      <section className="bg-[#1f1f1f] min-h-[calc(100vh-5rem)] overflow-hidden px-6 md:px-16 pb-20">
+        {/* pb-20 adds bottom padding so content won't be hidden by BottomNav */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-4 h-[650px] overflow-y-scroll scrollbar-hide">
-        {filteredTables?.length > 0 ? (
-          filteredTables.map((table) => (
-            <TableCard
-              key={table._id}
-              id={table._id}
-              name={table.tableNo}
-              status={table.status}
-              initials={table?.currentOrder?.customerDetails?.name}
-              seats={table.seats}
-            />
-          ))
-        ) : (
-          <p className="col-span-full text-gray-500 text-center">
-            No tables available
-          </p>
-        )}
-      </div>
+        <div className="flex items-center justify-between px-4 py-4">
+          <div className="flex items-center gap-4">
+            <BackButton />
+            <h1 className="text-[#f5f5f5] text-2xl font-bold tracking-wider">
+              Tables
+            </h1>
+          </div>
+          <div className="flex items-center gap-4">
+            {["all", "booked"].map((s) => (
+              <button
+                key={s}
+                onClick={() => setStatus(s)}
+                className={`text-[#ababab] text-lg rounded-lg px-5 py-2 font-semibold ${
+                  status === s ? "bg-[#383838]" : ""
+                }`}
+              >
+                {s.charAt(0).toUpperCase() + s.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-4 h-[650px] overflow-y-scroll scrollbar-hide">
+          {filteredTables?.length > 0 ? (
+            filteredTables.map((table) => (
+              <TableCard
+                key={table._id}
+                id={table._id}
+                name={table.tableNo}
+                status={table.status}
+                initials={table?.currentOrder?.customerDetails?.name}
+                seats={table.seats}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-gray-500 text-center">
+              No tables available
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Bottom Nav fixed at bottom */}
       <BottomNav />
-    </section>
+    </>
   );
 };
 

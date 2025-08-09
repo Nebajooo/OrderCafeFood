@@ -56,7 +56,7 @@ export const formatDateAndTime = (date) => {
     minute: "2-digit",
     second: "2-digit",
     hour12: true,
-    timeZone: "Asia/Kolkata",
+    timeZone: "Africa/Addis_Ababa",
   });
 
   return dateAndTime;

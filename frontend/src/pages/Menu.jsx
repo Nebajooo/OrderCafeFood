@@ -16,10 +16,13 @@ const Menu = () => {
   const customerData = useSelector((state) => state.customer);
 
   return (
-    <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3">
+    <section
+      className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-3"
+      style={{ paddingBottom: "5rem" }} // leave space for BottomNav
+    >
       {/* Left Div */}
-      <div className="flex-[3]">
-        <div className="flex items-center justify-between px-10 py-4">
+      <div className="flex-[3] flex flex-col" style={{ height: "100%" }}>
+        <div className="flex items-center justify-between px-10 py-4 flex-shrink-0">
           <div className="flex items-center gap-4">
             <BackButton />
             <h1 className="text-[#f5f5f5] text-2xl font-bold tracking-wider">
@@ -41,10 +44,17 @@ const Menu = () => {
           </div>
         </div>
 
-        <MenuContainer />
+        {/* Scrollable menu content */}
+        <div className="flex-1 overflow-y-auto px-10">
+          <MenuContainer />
+        </div>
       </div>
+
       {/* Right Div */}
-      <div className="flex-[1] bg-[#1a1a1a] mt-4 mr-3 h-[780px] rounded-lg pt-2">
+      <div
+        className="flex-[1] bg-[#1a1a1a] mt-4 mr-3 rounded-lg pt-2 flex flex-col"
+        style={{ height: "780px" }}
+      >
         {/* Customer Info */}
         <CustomerInfo />
         <hr className="border-[#2a2a2a] border-t-2" />
