@@ -41,7 +41,7 @@ const Header = () => {
       >
         <img src={logo} className="h-8 w-8" alt="restro logo" />
         <h1 className="text-lg font-semibold text-[#f5f5f5] tracking-wide">
-          Restro
+          ቡሌ
         </h1>
       </div>
 

@@ -125,11 +125,11 @@ const Invoice = ({ orderInfo, setShowInvoice }) => {
                   <strong>Payment Method:</strong> {orderInfo.paymentMethod}
                 </p>
                 <p>
-                  <strong>Razorpay Order ID:</strong>{" "}
+                  <strong>TeleBirr Order ID:</strong>{" "}
                   {orderInfo.paymentData?.razorpay_order_id}
                 </p>
                 <p>
-                  <strong>Razorpay Payment ID:</strong>{" "}
+                  <strong>TeleBirr Payment ID:</strong>{" "}
                   {orderInfo.paymentData?.razorpay_payment_id}
                 </p>
               </>
